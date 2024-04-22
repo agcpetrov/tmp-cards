@@ -49,15 +49,30 @@
 .read-the-docs {
   color: #888;
 }
-
 .loader {
-  position: fixed;
-  top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+}
+.loader::before,
+.loader::after{
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#0000,#fff 1deg 18deg,#0000 20deg 36deg);
+  -webkit-mask:repeating-radial-gradient(farthest-side,#fff 0 10%,#0000 0 20%);
+  animation: l10 4s infinite linear;
+}
+.loader::after{
+  -webkit-mask:repeating-radial-gradient(farthest-side,#0000 0 10%,#fff 0 20%);
+  animation-direction: reverse;
+}
+@keyframes l10 {
+  100% {transform:rotate(.5turn)}
+}
+.loader-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }

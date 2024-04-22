@@ -2,71 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Тарология</title>
+    <title>Узнай свою судьбу</title>
 
     <style>
-      .lds-heart {
-        display: inline-block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-        transform: rotate(45deg);
-        transform-origin: 40px 40px;
+      html {
+        background: #000;
       }
-      .lds-heart div {
-        top: 32px;
-        left: 32px;
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        background: red;
-        animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+      body, html, #root {
+        height: 100%;
+        margin: 0;
       }
-      .lds-heart div:after,
-      .lds-heart div:before {
-        content: " ";
-        position: absolute;
-        display: block;
-        width: 32px;
-        height: 32px;
-        background: red;
+      .loader {
+        width: 50px;
+        aspect-ratio: 1;
+        display: grid;
       }
-      .lds-heart div:before {
-        left: -24px;
-        border-radius: 50% 0 0 50%;
+      .loader::before,
+      .loader::after{
+        content: "";
+        grid-area: 1/1;
+        border-radius: 50%;
+        background: repeating-conic-gradient(#0000,#fff 1deg 18deg,#0000 20deg 36deg);
+        -webkit-mask:repeating-radial-gradient(farthest-side,#fff 0 10%,#0000 0 20%);
+        animation: l10 4s infinite linear;
       }
-      .lds-heart div:after {
-        top: -24px;
-        border-radius: 50% 50% 0 0;
+      .loader::after{
+        -webkit-mask:repeating-radial-gradient(farthest-side,#0000 0 10%,#fff 0 20%);
+        animation-direction: reverse;
       }
-      @keyframes lds-heart {
-        0% {
-          transform: scale(0.95);
-        }
-        5% {
-          transform: scale(1.1);
-        }
-        39% {
-          transform: scale(0.85);
-        }
-        45% {
-          transform: scale(1);
-        }
-        60% {
-          transform: scale(0.95);
-        }
-        100% {
-          transform: scale(0.9);
-        }
+      @keyframes l10 {
+        100% {transform:rotate(.5turn)}
       }
-
+      .loader-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
     </style>
   </head>
   <body>
     <div id="root">
-      <div class="lds-heart"><div></div></div>
+      <div class="loader-wrapper">
+        <div class="loader"></div>
+      </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

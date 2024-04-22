@@ -55,7 +55,11 @@ function App() {
 
   return (
     <>
-        {!loaded && <div className="loader"><div className="lds-heart"><div></div></div></div>}
+        {!loaded && (
+            <div className="loader-wrapper">
+                <div className="loader"></div>
+            </div>
+        )}
         {loaded && <CardList/>}
     </>
   )
