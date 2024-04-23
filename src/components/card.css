@@ -21,6 +21,7 @@
     top: 0;
     left: 0;
     right: 0;
+    color: #fff;
 }
 
 .title-wrapper {
@@ -39,7 +40,7 @@
 }
 
 .deck {
-    cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39,
+    cursor: url('/cursor.png') 39 39,
     auto;
     position: absolute;
     will-change: transform;

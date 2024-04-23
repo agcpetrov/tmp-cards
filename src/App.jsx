@@ -203,6 +203,12 @@ function App() {
             setLoaded(true);
         }
 
+        document.body.style.height = window.innerHeight + 'px';
+
+        window.addEventListener('resize', () => {
+            document.body.style.height = window.innerHeight + 'px';
+        });
+
         window.addEventListener('load', loadHandler);
 
         return () => {
