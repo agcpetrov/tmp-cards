@@ -134,14 +134,37 @@
 .deck-socials {
     position: fixed;
     right: 0;
+    left: 0;
     bottom: 0;
-    transform: translateY(100px);
+    transform: translateY(200px);
     padding: 32px;
     transition: transform .4s ease-in-out;
     z-index: 1000;
-    width: 320px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .deck-socials-visible {
     transform: translateY(0);
+}
+
+.deck-socials-inner {
+    flex-grow: 1;
+    max-width: 320px;
+}
+
+.deck-socials-inner .buttons {
+    margin-top: 0;
+}
+
+@media (max-width: 480px) {
+    .deck-socials {
+        align-items: center;
+        padding: 16px
+    }
+
+    .deck-socials-inner .social-button {
+        width: 40px;
+        height: 40px;
+    }
 }

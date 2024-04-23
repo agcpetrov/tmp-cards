@@ -7,6 +7,8 @@ import {Modal} from "./modal.jsx";
 import {cards} from "../App.jsx";
 import {FinalModal} from "./final-modal.jsx";
 import {SocialsList} from "./socials-list.jsx";
+import {PriceModal} from "./price-modal.jsx";
+import CatalogueIcon from '../assets/catalogue.png';
 
 
 const texts = [
@@ -81,6 +83,13 @@ export const CardList = () => {
         leave: {opacity: 0, scale: 0}
     });
 
+    const [priceModalVisible, setPriceModalVisible] = useState(false);
+    const priceModalTransitions = useTransition([priceModalVisible], {
+        from: {opacity: 0, scale: 0},
+        enter: {opacity: 1, scale: 1},
+        leave: {opacity: 0, scale: 0}
+    })
+
     const openFinalModal = () => {
         setFinalModalVisible(true);
         setModalVisible(false);
@@ -91,6 +100,16 @@ export const CardList = () => {
         if (activeIndex === cards.length) {
             setFinalModalVisible(true)
         }
+    }
+
+    const openPriceModal = () => {
+        setPriceModalVisible(true);
+        setFinalModalVisible(false);
+        setModalVisible(false);
+    }
+
+    const closePriceModal = () => {
+        setPriceModalVisible(false);
     }
 
     const [fadeIn, setFadeIn] = useSpring(() => ({y: -200, opacity: 0, config: {duration: 500}}));
@@ -223,6 +242,20 @@ export const CardList = () => {
             }
         )}
 
-        <div className={`deck-socials ${showSocials && 'deck-socials-visible'}`}><SocialsList/></div>
+        {priceModalTransitions(
+            (style, item) => {
+                return item && <PriceModal style={style} onClose={closePriceModal}/>
+            }
+        )}
+
+        <div className={`deck-socials ${showSocials && 'deck-socials-visible'}`}>
+            <button className="deck-catalog-btn" onClick={openPriceModal}>
+                {/*<img src={CatalogueIcon} alt="Каталог" />*/}
+                Каталог
+            </button>
+            <div className="deck-socials-inner">
+                <SocialsList/>
+            </div>
+        </div>
     </>
 }
