@@ -193,27 +193,13 @@ function App() {
     const [loaded, setLoaded] = useState(false);
 
     useLayoutEffect(() => {
-        const loadHandler = async () => {
-            const imagesPromiseList = []
-            for (const i of imageToPreload) {
-                imagesPromiseList.push(preloadImage(i))
-            }
-            await Promise.all(imagesPromiseList)
-
-            setLoaded(true);
-        }
+        setLoaded(true);
 
         document.body.style.height = window.innerHeight + 'px';
 
         window.addEventListener('resize', () => {
             document.body.style.height = window.innerHeight + 'px';
         });
-
-        window.addEventListener('load', loadHandler);
-
-        return () => {
-            window.removeEventListener('load', loadHandler);
-        }
     }, []);
 
 
