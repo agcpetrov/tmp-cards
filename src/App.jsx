@@ -3,6 +3,7 @@ import {CardList} from "./components/card-list.jsx";
 import {useLayoutEffect, useState} from "react";
 import BG from './assets/bg.jpg';
 import CardBack from './assets/card-back.png';
+import {YMInitializer} from "react-yandex-metrika";
 
 
 export const cards = [
@@ -166,7 +167,6 @@ const cardsPull = [];
 
 for (let i = 0; i < 5; i++) {
     const randomIndex = Math.floor(Math.random() * cards.length);
-    console.log(randomIndex);
     cardsPull.push(cards[randomIndex]);
     cards.splice(randomIndex, 1);
 }
@@ -219,6 +219,7 @@ function App() {
 
   return (
     <>
+        <YMInitializer accounts={[97110756]} />
         {!loaded && (
             <div className="loader-wrapper">
                 <div className="loader"></div>
