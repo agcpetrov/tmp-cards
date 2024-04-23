@@ -40,12 +40,18 @@
     transform: scale(1.2);
 }
 
+/*.final-modal-container img {*/
+/*    left: -238px;*/
+/*    position: relative;*/
+/*    margin-top: -394px;*/
+/*}*/
+
 .buttons {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-@media (max-width: 540px) {
+@media (max-width: 800px) {
     .final-modal {
         margin: 0;
         width: 100%;
@@ -65,12 +71,13 @@
 
     .final-modal-container .image {
         flex: 0 0 100%;
-        margin-bottom: 32px;
+        margin-bottom: 0;
         height: 300px;
     }
 
     .final-modal-container .image img {
         width: 100%;
+        position: static;
     }
 
 }

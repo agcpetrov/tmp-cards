@@ -6,7 +6,11 @@ import './modal.css';
 export const Modal = ({ onClose, style, text, onGetMore }) => {
     return <animated.div style={style} className="modal">
         <div className={"text"}>
-            {text}
+            <h2 className="info-title">{text.title}</h2>
+            <h3 className="info-subtitle">{text.subTitle}</h3>
+            <p className="info-text">
+                {text.description}
+            </p>
         </div>
         <div className={"buttons"}>
             <button className="modal-button more" onClick={onGetMore}>

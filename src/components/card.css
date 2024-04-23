@@ -168,3 +168,9 @@
         height: 40px;
     }
 }
+
+.info-subtitle {
+    font-style: italic;
+    font-weight: 400;
+    text-align: right;
+}
